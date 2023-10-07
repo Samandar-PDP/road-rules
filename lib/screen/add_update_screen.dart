@@ -63,7 +63,6 @@ class _AddUpdateScreenState extends State<AddUpdateScreen> {
                 SizedBox(
                   height: 300,
                   child: TextField(
-                    textAlign: TextAlign.start,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(vertical: 100,horizontal: 12),
                       fillColor: Colors.black12,
