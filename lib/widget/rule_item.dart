@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:road_rules/rule.dart';
 
 class RuleItem extends StatelessWidget {
-  const RuleItem({super.key});
+  const RuleItem({super.key, required this.rule});
+  final Rule rule;
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +15,13 @@ class RuleItem extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: ListTile(
-          leading: Icon(Icons.car_rental,size: 90,),
-          title: Text("Susambil"),
+          leading: CircleAvatar(
+            radius: 60,
+            foregroundImage: FileImage(
+              File(rule.path)
+            ),
+          ),
+          title: Text(rule.title,style: TextStyle(fontSize: 25),),
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 35.0),
             child: Row(
